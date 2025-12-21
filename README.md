@@ -31,3 +31,37 @@ Watch the complete lecture series on YouTube:
 | _More lectures coming soon..._ |                                             |                                                  |
 
 **📺 Subscribe to [our channel](https://www.youtube.com/@brainxl)** to get notified when new lectures are published!
+
+## 👨‍🏫 Instructor
+
+**Dr. Abbas Malik**  
+College of Computer & Information Sciences  
+Prince Sultan University  
+Email: amaalik@psu.edu.sa
+
+## 🏫 University
+
+**Prince Sultan University – Riyadh, Saudi Arabia**  
+**College of Computer & Information Sciences (CCIS)**
+
+## 📌 How to Use This Repo
+
+1. Clone the repository:  
+   `git clone https://github.com/mgmalik/flutterappdev.git`
+2. Install Flutter and Dart SDK from [flutter.dev](https://flutter.dev)
+3. Open examples in VS Code
+4. Follow along with lecture materials and complete labs
+
+## 📄 License
+
+This repository is intended for educational use within Prince Sultan University and for learners who are following YouTube Videos. Please respect academic integrity and usage guidelines.
+
+---
+
+⭐ **Star this repo** if you find it helpful!  
+🔁 **Fork and contribute** via pull requests (for corrections or enhancements).  
+📧 **Contact:** For course-related queries, please reach out to the instructor.
+
+---
+
+Let's build beautiful web apps together with full stack technologies! 📱✨

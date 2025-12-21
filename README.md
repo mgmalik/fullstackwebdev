@@ -47,8 +47,8 @@ Email: amaalik@psu.edu.sa
 ## 📌 How to Use This Repo
 
 1. Clone the repository:  
-   `git clone https://github.com/mgmalik/flutterappdev.git`
-2. Install Flutter and Dart SDK from [flutter.dev](https://flutter.dev)
+   `git clone https://github.com/mgmalik/fullstackwebdev`
+2. Install Node.JS, XAMPP and Postman
 3. Open examples in VS Code
 4. Follow along with lecture materials and complete labs
 

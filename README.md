@@ -28,9 +28,9 @@ Watch the complete lecture series on YouTube:
 | Lecture                        | Title                                       | Video Link                                       |
 | ------------------------------ | ------------------------------------------- | ------------------------------------------------ |
 | Full Stack Web Deve 01         | Introduction to Web & Internet Fundamentals | [Watch Lecture 01](https://youtu.be/CFEauurtrLE) |
-| Full Stack Web Deve 02         | Web Fundamentals, History & How the Internet Works | [Watch Lecture 01](https://youtu.be/uF59vmdJFDs) |
-| Full Stack Web Deve 03         | HTML Basics, Page Structure & Tags | [Watch Lecture 01](https://youtu.be/Pu0C3nk4b5E) |
-| Full Stack Web Deve 04         | Week02 Practical: Building Your First Webpages | [Watch Lecture 01](https://youtu.be/IRd-EblrDiI) |
+| Full Stack Web Deve 02         | Web Fundamentals, History & How the Internet Works | [Watch Lecture 02](https://youtu.be/uF59vmdJFDs) |
+| Full Stack Web Deve 03         | HTML Basics, Page Structure & Tags | [Watch Lecture 03](https://youtu.be/Pu0C3nk4b5E) |
+| Full Stack Web Deve 04         | Week02 Practical: Building Your First Webpages | [Watch Practical Week 02](https://youtu.be/IRd-EblrDiI) |
 | _More lectures coming soon..._ |                                             |                                                  |
 
 **📺 Subscribe to [our channel](https://www.youtube.com/@brainxl)** to get notified when new lectures are published!

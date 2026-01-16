@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page 2</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h2><a href="page1.html">Go Back</a></h2>
+    <h1>This is Second Page</h1>
+    <form action="page3.html">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" /><br /><br />
+      <label for="male">Male</label>
+      <input type="radio" id="male" name="gender" value="male" />
+      <label for="female">Female</label>
+      <input
+        type="radio"
+        id="female"
+        name="gender"
+        value="female"
+      /><br /><br />
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" /><br /><br />
+      <label for="dob">Birthday</label>
+      <input type="date" id="dob" name="dob" /><br /><br />
+      <input type="submit" value="submit" />
+      <!-- http://127.0.0.1:5500/page3.html?name=Abbas&gender=male&password=465454 -->
+      <!-- http://127.0.0.1:5500/page3.html?name=Abbas&gender=male&password=asdfasdfsadf&dob=2019-05-12 -->
+    </form>
+  </body>
+</html>

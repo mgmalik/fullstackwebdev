@@ -1,0 +1,26 @@
+/* External Style */
+
+/* Universal selector */
+* {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: red;
+}
+
+body {
+  padding: 20px;
+}
+
+p {
+  margin: 60px;
+}
+
+.first-class-style {
+  font-size: 50px;
+  font-weight: bold;
+  color: #1d546d;
+  background-color: #fffde1;
+  border: 3px solid #e5ba41;
+  border-radius: 20px;
+  margin: 15px;
+  padding: 20px;
+}

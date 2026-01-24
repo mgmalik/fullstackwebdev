@@ -1,0 +1,11 @@
+body {
+  background-color: lightblue;
+}
+section {
+  background-color: lightgrey;
+  padding: 20px;
+}
+
+.col-border {
+  border: 2px solid blue;
+}

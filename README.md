@@ -25,16 +25,21 @@ This course provides a structured introduction to modern full-stack web developm
 
 Watch the complete lecture series on YouTube:
 
-| Lecture                          | Title                                                    | Video Link                                                |
-| -------------------------------- | -------------------------------------------------------- | --------------------------------------------------------- |
-| Full Stack Web Deve 01           | Introduction to Web & Internet Fundamentals              | [Watch Lecture 01](https://youtu.be/CFEauurtrLE)          |
-| Full Stack Web Deve 02           | Web Fundamentals, History & How the Internet Works       | [Watch Lecture 02](https://youtu.be/uF59vmdJFDs)          |
-| Full Stack Web Deve 03           | HTML Basics, Page Structure & Tags                       | [Watch Lecture 03](https://youtu.be/Pu0C3nk4b5E)          |
-| Full Stack Web Deve 03 Practical | Week02 Practical: Building Your First Webpages           | [Watch Practical Week 02](https://youtu.be/IRd-EblrDiI)   |
-| Full Stack Web Deve 04           | HTML Attributes, Text Formatting & Styling               | [Watch Lecture 04 Part I](https://youtu.be/0sk527prcIc)   |
-| Full Stack Web Deve 04           | Images, Lists & Tables, HTML Advanced Elements           | [Watch Lecture 04 Part II](https://youtu.be/zY4OEVqAckU)  |
-| Full Stack Web Deve 04 Practical | HTML Tables Complete Guide, Styling, Layout & Validation | [Watch Lecture 04 Part III](https://youtu.be/KQ2-Sd56fUw) |
-| _More lectures coming soon..._   |                                                          |                                                           |
+| Lecture                          | Title                                                              | Video Link                                                |
+| -------------------------------- | ------------------------------------------------------------------ | --------------------------------------------------------- |
+| Full Stack Web Deve 01           | Introduction to Web & Internet Fundamentals                        | [Watch Lecture 01](https://youtu.be/CFEauurtrLE)          |
+| Full Stack Web Deve 02           | Web Fundamentals, History & How the Internet Works                 | [Watch Lecture 02](https://youtu.be/uF59vmdJFDs)          |
+| Full Stack Web Deve 03           | HTML Basics, Page Structure & Tags                                 | [Watch Lecture 03](https://youtu.be/Pu0C3nk4b5E)          |
+| Full Stack Web Deve 03 Practical | Week02 Practical: Building Your First Webpages                     | [Watch Practical Week 02](https://youtu.be/IRd-EblrDiI)   |
+| Full Stack Web Deve 04           | HTML Attributes, Text Formatting & Styling                         | [Watch Lecture 04 Part I](https://youtu.be/0sk527prcIc)   |
+| Full Stack Web Deve 04           | Images, Lists & Tables, HTML Advanced Elements                     | [Watch Lecture 04 Part II](https://youtu.be/zY4OEVqAckU)  |
+| Full Stack Web Deve 04 Practical | HTML Tables Complete Guide, Styling, Layout & Validation           | [Watch Lecture 04 Part III](https://youtu.be/KQ2-Sd56fUw) |
+| Full Stack Web Deve 05           | CSS Complete Guide & HTML Forms                                    | [Watch Lecture 05 Part I](https://youtu.be/zJxAcuCTays)   |
+| Full Stack Web Deve 05 Practical | CSS Complete Guide & HTML Forms: Hands on Tutorial                 | [Watch Lecture 05 Part I](https://youtu.be/DEt20c-f3Ys)   |
+| Full Stack Web Deve 06 Part I    | Bootstrap 5 Crash Course, Responsive Grids, Tables & UI Components | [Watch Lecture 06 Part I](https://youtu.be/hreW5_-RAXQ)   |
+| Full Stack Web Deve 06 Part II   | Bootstrap Advanced Components & CSS Animations                     | [Watch Lecture 06 Part I](https://youtu.be/8p_MVHWVi7U)   |
+| Full Stack Web Deve 06 Part III  | Bootstrap Forms & Hands-On Lab Project                             | [Watch Lecture 06 Part I](https://youtu.be/WEYEZCJU-2E)   |
+| _More lectures coming soon..._   |                                                                    |                                                           |
 
 **📺 Subscribe to [our channel](https://www.youtube.com/@brainxl)** to get notified when new lectures are published!
 

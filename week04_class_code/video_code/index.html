@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS and Form Practice</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h1>Form Practice</h1>
+    <p><a href="page2.html">Go to Page 2</a></p>
+    <form action="formhandler.html" method="get">
+      <label for="name">Name</label><br />
+      <input type="text" id="name" name="name" class="user-input-margin" />
+      <br />
+      <label for="email">Email</label><br />
+      <input type="email" id="email" name="email" class="user-input-margin" />
+      <br />
+      <label for="password">Password</label><br />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        class="user-input-margin"
+      />
+      <br />
+      <label for="cars">Favourite Car</label><br />
+      <select id="cars" name="cars" class="user-input-margin" size="3" multiple>
+        <option value="BMW">BMW</option>
+        <option value="Toyota">Toyota</option>
+        <option value="Audi">Audi</option>
+        <option value="Honda">Honda</option></select
+      ><br />
+
+      <label for="browser">Favourite Browser</label><br />
+      <input list="browsers" name="browser" class="user-input-margin" />
+      <datalist id="browsers">
+        <option value="Edge"></option>
+        <option value="Chrome"></option>
+        <option value="Safari"></option>
+        <option value="Opera"></option></datalist
+      ><br />
+      <input type="submit" />
+    </form>
+  </body>
+</html>

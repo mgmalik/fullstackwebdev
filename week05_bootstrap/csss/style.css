@@ -1,0 +1,67 @@
+.bg-nav {
+  background-color: #67ab8f !important; /* !important is used to make sure this style applys on navbar background*/
+}
+
+.div-animate {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  background-color: blueviolet;
+  animation: animate 5s 2s 4 alternate;
+  border-radius: 30px;
+  margin: 20px;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(360deg);
+    background-color: red;
+    left: 0px;
+    top: 0px;
+  }
+  25% {
+    background-color: green;
+    left: 300px;
+    top: 0px;
+    height: 200px;
+    width: 50x;
+  }
+  50% {
+    background-color: yellow;
+    left: 300px;
+    top: 300px;
+    height: 100px;
+    width: 100x;
+  }
+  75% {
+    background-color: blue;
+    left: 0px;
+    top: 300px;
+    height: 200px;
+    width: 50x;
+  }
+  100% {
+    background-color: pink;
+    left: 0px;
+    top: 0px;
+    height: 50px;
+    width: 150x;
+  }
+}
+
+.nav-img {
+  height: 35px;
+  width: 35px;
+  animation-name: brand-img-animate;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes brand-img-animate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

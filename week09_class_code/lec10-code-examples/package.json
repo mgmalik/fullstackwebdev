@@ -1,0 +1,27 @@
+{
+  "name": "firstwebapp",
+  "version": "1.0.0",
+  "description": "this is the first test for developing web app using express package/library.",
+  "keywords": [
+    "web",
+    "service",
+    "nodejs",
+    "expressjs",
+    "http",
+    "request",
+    "response"
+  ],
+  "license": "ISC",
+  "author": "Abbas Malik",
+  "type": "commonjs",
+  "main": "myapp.js",
+  "scripts": {
+    "dev": "nodemon myapp.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}

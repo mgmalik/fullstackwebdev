@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bootstrap/bootstrap.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container py-4">
+      <!-- Navigation Buttons -->
+      <div class="row mb-4">
+        <div class="col-12">
+          <div class="btn-group w-100" role="group">
+            <a href="index.html" class="btn btn-outline-primary">
+              <i class="fas fa-list"></i> All Records
+            </a>
+            <a href="view-record.html" class="btn btn-outline-primary">
+              <i class="fas fa-eye"></i> View/Edit Record
+            </a>
+            <a href="delete-record.html" class="btn btn-outline-primary">
+              <i class="fas fa-trash-alt"></i> Delete Record
+            </a>
+            <a href="insert-record.html" class="btn btn-primary active">
+              <i class="fas fa-plus-circle"></i> Insert Record
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Card -->
+      <div class="card shadow">
+        <div class="card-header bg-success text-white">
+          <h4 class="mb-0"><i class="fas fa-user-plus"></i> Add New Student</h4>
+        </div>
+        <div class="card-body">
+          <div class="alert alert-info">
+            <i class="fas fa-info-circle"></i>
+            <strong>Instructions:</strong> Fill in the form below to add a new
+            student to the database. All fields marked with
+            <span class="text-danger">*</span> are required.
+          </div>
+
+          <form id="studentForm">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="name" class="form-label fw-bold">
+                  <i class="fas fa-user"></i> Full Name
+                  <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Enter student's full name"
+                  required
+                />
+                <small class="text-muted">Example: Omar Al-Farsi</small>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="gender" class="form-label fw-bold">
+                  <i class="fas fa-venus-mars"></i> Gender
+                </label>
+                <select class="form-select" id="gender">
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="semester" class="form-label fw-bold">
+                  <i class="fas fa-calendar-alt"></i> Semester
+                  <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="semester"
+                  min="1"
+                  max="8"
+                  placeholder="1-8"
+                  required
+                />
+                <small class="text-muted">Must be between 1 and 8</small>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="major" class="form-label fw-bold">
+                  <i class="fas fa-graduation-cap"></i> Major
+                  <span class="text-danger">*</span>
+                </label>
+                <select class="form-select" id="major" required>
+                  <option value="CS">Computer Science (CS)</option>
+                  <option value="IS">Information Systems (IS)</option>
+                  <option value="SE">Software Engineering (SE)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mt-3">
+              <button type="submit" class="btn btn-success">
+                <i class="fas fa-save"></i> Add Student
+              </button>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="resetForm()"
+              >
+                <i class="fas fa-undo"></i> Reset Form
+              </button>
+              <button
+                type="button"
+                class="btn btn-info"
+                onclick="fillSampleData()"
+              >
+                <i class="fas fa-fill-drip"></i> Fill Sample Data
+              </button>
+            </div>
+          </form>
+
+          <!-- Preview Card -->
+          <div
+            id="previewCard"
+            class="card mt-4 bg-light"
+            style="display: none"
+          >
+            <div class="card-header">
+              <h6 class="mb-0"><i class="fas fa-eye"></i> Preview</h6>
+            </div>
+            <div class="card-body" id="previewContent"></div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="text-center mt-4 text-muted">
+        <p>
+          <i class="fas fa-graduation-cap"></i> Student Management System | Full
+          Stack Application
+        </p>
+      </footer>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document
+          .getElementById("studentForm")
+          .addEventListener("submit", addStudent);
+        // Add real-time preview
+        ["name", "gender", "semester", "major"].forEach((field) => {
+          document.getElementById(field).addEventListener("input", showPreview);
+          document
+            .getElementById(field)
+            .addEventListener("change", showPreview);
+        });
+      });
+
+      function showAlert(message, type) {
+        const alertDiv = document.createElement("div");
+        alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed top-0 end-0 m-3`;
+        alertDiv.style.zIndex = "9999";
+        alertDiv.style.minWidth = "300px";
+        alertDiv.innerHTML = `${message}<button type="button" class="btn-close" data-bs-dismiss="alert"></button>`;
+        document.body.appendChild(alertDiv);
+        setTimeout(() => alertDiv.remove(), 3000);
+      }
+
+      function showLoading(show) {
+        let spinner = document.getElementById("loadingSpinner");
+        if (show && !spinner) {
+          spinner = document.createElement("div");
+          spinner.id = "loadingSpinner";
+          spinner.className =
+            "position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center";
+          spinner.style.backgroundColor = "rgba(0,0,0,0.5)";
+          spinner.style.zIndex = "9998";
+          spinner.innerHTML =
+            '<div class="spinner-border text-light" role="status"><span class="visually-hidden">Loading...</span></div>';
+          document.body.appendChild(spinner);
+        } else if (!show && spinner) {
+          spinner.remove();
+        }
+      }
+
+      async function addStudent(event) {
+        event.preventDefault();
+        const studentData = {
+          name: document.getElementById("name").value.trim(),
+          gender: document.getElementById("gender").value,
+          semester: document.getElementById("semester").value,
+          major: document.getElementById("major").value,
+        };
+
+        if (!studentData.name) {
+          showAlert("Please enter student name", "warning");
+          return;
+        }
+
+        if (studentData.semester < 1 || studentData.semester > 8) {
+          showAlert("Semester must be between 1 and 8", "warning");
+          return;
+        }
+
+        showLoading(true);
+        const response = await fetch("/data/student", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(studentData),
+        });
+
+        const result = await response.json();
+        if (result.success) {
+          resetForm();
+          const addAnother = confirm(
+            "Student added successfully!\n\nClick OK to add another student or Cancel to view all students.",
+          );
+          if (!addAnother) {
+            window.location.href = "index.html";
+          }
+        } else {
+          throw new Error(result.message);
+        }
+        showLoading(false);
+      }
+
+      function resetForm() {
+        document.getElementById("studentForm").reset();
+        document.getElementById("gender").value = "Male";
+        document.getElementById("major").value = "CS";
+        document.getElementById("previewCard").style.display = "none";
+      }
+
+      function fillSampleData() {
+        const sampleNames = [
+          "Ahmed Al-Mansouri",
+          "Fatima Hassan",
+          "Omar Al-Farsi",
+          "Layla Abdullah",
+          "Youssef Khalil",
+          "Nour El-Din",
+          "Hassan Al-Rashid",
+          "Amina Al-Zahrani",
+        ];
+        const randomName =
+          sampleNames[Math.floor(Math.random() * sampleNames.length)];
+        const randomSemester = Math.floor(Math.random() * 8) + 1;
+        const randomMajor = ["CS", "IS", "SE"][Math.floor(Math.random() * 3)];
+        const randomGender = Math.random() > 0.5 ? "Male" : "Female";
+
+        document.getElementById("name").value = randomName;
+        document.getElementById("gender").value = randomGender;
+        document.getElementById("semester").value = randomSemester;
+        document.getElementById("major").value = randomMajor;
+
+        showPreview();
+        showAlert(
+          "Sample data filled! You can edit before submitting.",
+          "info",
+        );
+      }
+
+      function showPreview() {
+        const name = document.getElementById("name").value.trim();
+        const gender = document.getElementById("gender").value;
+        const semester = document.getElementById("semester").value;
+        const major = document.getElementById("major").value;
+
+        if (name && semester && major) {
+          const majorBadge =
+            major === "CS" ? "primary" : major === "IS" ? "success" : "danger";
+          const genderBadge = gender === "Male" ? "info" : "warning";
+
+          document.getElementById("previewContent").innerHTML = `
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong><i class="fas fa-user"></i> Name:</strong> ${escapeHtml(name)}
+                        </div>
+                        <div class="col-md-6">
+                            <strong><i class="fas fa-venus-mars"></i> Gender:</strong> 
+                            <span class="badge bg-${genderBadge}">${gender}</span>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                            <strong><i class="fas fa-calendar-alt"></i> Semester:</strong> 
+                            <span class="badge bg-secondary">Semester ${semester}</span>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                            <strong><i class="fas fa-graduation-cap"></i> Major:</strong> 
+                            <span class="badge bg-${majorBadge}">${major}</span>
+                        </div>
+                    </div>
+                `;
+          document.getElementById("previewCard").style.display = "block";
+        } else {
+          document.getElementById("previewCard").style.display = "none";
+        }
+      }
+
+      function escapeHtml(text) {
+        const div = document.createElement("div");
+        div.textContent = text;
+        return div.innerHTML;
+      }
+    </script>
+    <script src="bootstrap/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="bootstrap/bootstrap.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container py-4">
+      <!-- Navigation Buttons -->
+      <div class="row mb-4">
+        <div class="col-12">
+          <div class="btn-group w-100" role="group">
+            <a href="index.html" class="btn btn-outline-primary">
+              <i class="fas fa-list"></i> All Records
+            </a>
+            <a href="view-record.html" class="btn btn-primary active">
+              <i class="fas fa-eye"></i> View/Edit Record
+            </a>
+            <a href="delete-record.html" class="btn btn-outline-primary">
+              <i class="fas fa-trash-alt"></i> Delete Record
+            </a>
+            <a href="insert-record.html" class="btn btn-outline-primary">
+              <i class="fas fa-plus-circle"></i> Insert Record
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Card -->
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+          <h4 class="mb-0">
+            <i class="fas fa-user-edit"></i> View / Edit Student Record
+          </h4>
+        </div>
+        <div class="card-body">
+          <!-- ID Input Section -->
+          <div class="row justify-content-center mb-4">
+            <div class="col-md-6">
+              <label class="form-label fw-bold"
+                ><i class="fas fa-id-card"></i> Enter Student ID:</label
+              >
+              <div class="input-group">
+                <input
+                  type="number"
+                  id="studentId"
+                  class="form-control"
+                  placeholder="Enter student ID (e.g., 1, 2, 3...)"
+                  min="1"
+                />
+                <button class="btn btn-primary" onclick="loadStudent()">
+                  <i class="fas fa-search"></i> Load Record
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Student Form (Hidden initially) -->
+          <div id="studentFormContainer" style="display: none">
+            <form id="studentForm">
+              <input type="hidden" id="studentIdField" />
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="name" class="form-label fw-bold">
+                    <i class="fas fa-user"></i> Full Name
+                    <span class="text-danger">*</span>
+                  </label>
+                  <input type="text" class="form-control" id="name" required />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="gender" class="form-label fw-bold">
+                    <i class="fas fa-venus-mars"></i> Gender
+                  </label>
+                  <select class="form-select" id="gender">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="semester" class="form-label fw-bold">
+                    <i class="fas fa-calendar-alt"></i> Semester
+                    <span class="text-danger">*</span>
+                  </label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="semester"
+                    min="1"
+                    max="8"
+                    required
+                  />
+                  <small class="text-muted">Must be between 1 and 8</small>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label for="major" class="form-label fw-bold">
+                    <i class="fas fa-graduation-cap"></i> Major
+                    <span class="text-danger">*</span>
+                  </label>
+                  <select class="form-select" id="major" required>
+                    <option value="CS">Computer Science (CS)</option>
+                    <option value="IS">Information Systems (IS)</option>
+                    <option value="SE">Software Engineering (SE)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="mt-3">
+                <button type="submit" class="btn btn-warning">
+                  <i class="fas fa-save"></i> Update Student
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  onclick="clearForm()"
+                >
+                  <i class="fas fa-undo"></i> Clear
+                </button>
+              </div>
+            </form>
+
+            <div class="alert alert-info mt-3">
+              <i class="fas fa-info-circle"></i>
+              <strong>Record Loaded:</strong> You can now edit the student
+              information above and click Update to save changes.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="text-center mt-4 text-muted">
+        <p>
+          <i class="fas fa-graduation-cap"></i> Student Management System | Full
+          Stack Application
+        </p>
+      </footer>
+    </div>
+    <script>
+      let currentStudentId = null;
+
+      function showAlert(message, type) {
+        const alertDiv = document.createElement("div");
+        alertDiv.className = `alert alert-${type} alert-dismissible fade show position-fixed top-0 end-0 m-3`;
+        alertDiv.style.zIndex = "9999";
+        alertDiv.style.minWidth = "300px";
+        alertDiv.innerHTML = `${message}<button type="button" class="btn-close" data-bs-dismiss="alert"></button>`;
+        document.body.appendChild(alertDiv);
+        setTimeout(() => alertDiv.remove(), 3000);
+      }
+
+      function showLoading(show) {
+        let spinner = document.getElementById("loadingSpinner");
+        if (show && !spinner) {
+          spinner = document.createElement("div");
+          spinner.id = "loadingSpinner";
+          spinner.className =
+            "position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center";
+          spinner.style.backgroundColor = "rgba(0,0,0,0.5)";
+          spinner.style.zIndex = "9998";
+          spinner.innerHTML =
+            '<div class="spinner-border text-light" role="status"><span class="visually-hidden">Loading...</span></div>';
+          document.body.appendChild(spinner);
+        } else if (!show && spinner) {
+          spinner.remove();
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get("id");
+        if (id) {
+          document.getElementById("studentId").value = id;
+          loadStudent();
+        }
+        document
+          .getElementById("studentForm")
+          .addEventListener("submit", updateStudent);
+      });
+
+      async function loadStudent() {
+        const id = document.getElementById("studentId").value;
+        if (!id) {
+          showAlert("Please enter a student ID", "warning");
+          return;
+        }
+
+        try {
+          showLoading(true);
+          const response = await fetch(`/data/student/${id}`);
+          const result = await response.json();
+          if (result.success) {
+            if (result.data) {
+              currentStudentId = result.data.id;
+              displayStudentInForm(result.data);
+              showAlert("Student record loaded successfully", "success");
+            } else {
+              showAlert("Student record does not exist", "warning");
+            }
+          } else {
+            throw new Error(result.message);
+          }
+          showLoading(false);
+        } catch (error) {
+          showLoading(false);
+          showAlert("Error: " + result.message, "danger");
+          clearForm();
+        }
+      }
+
+      function displayStudentInForm(student) {
+        document.getElementById("studentIdField").value = student.id;
+        document.getElementById("name").value = student.name;
+        document.getElementById("gender").value = student.gender || "Male";
+        document.getElementById("semester").value = student.semester;
+        document.getElementById("major").value = student.major;
+        document.getElementById("studentFormContainer").style.display = "block";
+      }
+
+      async function updateStudent(event) {
+        event.preventDefault();
+
+        const studentData = {
+          name: document.getElementById("name").value,
+          gender: document.getElementById("gender").value,
+          semester: parseInt(document.getElementById("semester").value),
+          major: document.getElementById("major").value,
+        };
+
+        if (!studentData.name) {
+          showAlert("Name is required", "warning");
+          return;
+        }
+        if (studentData.semester < 1 || studentData.semester > 8) {
+          showAlert("Semester must be between 1 and 8", "warning");
+          return;
+        }
+
+        try {
+          showLoading(true);
+          const response = await fetch(`/data/student/${currentStudentId}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(studentData),
+          });
+          const result = await response.json();
+          console.log(result);
+          if (result.success) {
+            if (result.data) {
+              showAlert("Student updated successfully!", "success");
+              displayStudentInForm(result.data);
+            } else {
+              showAlert("Student is not updated!", "warning");
+              document.getElementById("studentFormContainer").style.display =
+                "none";
+            }
+          } else {
+            throw new Error(result.message);
+          }
+          showLoading(false);
+        } catch (error) {
+          showLoading(false);
+          showAlert("Error updating student: " + error.message, "danger");
+        }
+      }
+
+      function clearForm() {
+        document.getElementById("studentId").value = "";
+        document.getElementById("studentIdField").value = "";
+        document.getElementById("name").value = "";
+        document.getElementById("gender").value = "Male";
+        document.getElementById("semester").value = "";
+        document.getElementById("major").value = "CS";
+        document.getElementById("studentFormContainer").style.display = "none";
+        currentStudentId = null;
+      }
+    </script>
+    <script src="bootstrap/bootstrap.min.js"></script>
+  </body>
+</html>

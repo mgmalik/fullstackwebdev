@@ -50,9 +50,9 @@ Watch the complete lecture series on YouTube:
 | Full Stack Web Dev 10 Part II           | Dynamic Web Development with Express, MySQL, and Postman                        | [Watch Lecture 10 Part II](https://youtu.be/w7yRBFd2ERg)           |
 | Full Stack Web Dev 10 Part III          | CRUD Operations, HTTP Status Codes & Data Validation with Joi & Node.js + MySQL | [Watch Lecture 10 Part III](https://youtu.be/HayMgFau3YU)          |
 | Full Stack Web Dev 10 Part IV           | CRUD Operations, HTTP Status Codes & Data Validation with Joi & Node.js + MySQL | [Watch Lecture 10 Part IV](https://youtu.be/Aonl5MXSdng)           |
-| Full Stack Web Dev 11 Part I            | Full Stack CRUD Application with Node.js, Express, MySQL & Bootstrap            | [Watch Lecture 10 Part IV](https://youtu.be/K8ASFD7mgNY)           |
-| Full Stack Web Dev 11 Part II           | Full Stack CRUD Application: Insert Record Feature & Frontend Integration       | [Watch Lecture 10 Part IV](https://youtu.be/DDrsnUdKsQQ)           |
-| Full Stack Web Dev 11 Part III          | Full Stack CRUD Application: Edit, Update & Delete Records                      | [Watch Lecture 10 Part IV](https://youtu.be/D2j8HnUFkG0)           |
+| Full Stack Web Dev 11 Part I            | Full Stack CRUD Application with Node.js, Express, MySQL & Bootstrap            | [Watch Lecture 11 Part I](https://youtu.be/K8ASFD7mgNY)            |
+| Full Stack Web Dev 11 Part II           | Full Stack CRUD Application: Insert Record Feature & Frontend Integration       | [Watch Lecture 11 Part II](https://youtu.be/DDrsnUdKsQQ)           |
+| Full Stack Web Dev 11 Part III          | Full Stack CRUD Application: Edit, Update & Delete Records                      | [Watch Lecture 11 Part III](https://youtu.be/D2j8HnUFkG0)          |
 | _More Practice Sessions coming soon..._ |                                                                                 |                                                                    |
 
 **📺 Subscribe to [our channel](https://www.youtube.com/@brainxl)** to get notified when new lectures are published!
